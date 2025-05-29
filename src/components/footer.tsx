@@ -1,4 +1,7 @@
 import FiBrandsFacebook from "./flations/fi-brands-facebook";
+import FiBrandsInstagram from "./flations/fi-brands-instagram";
+import FiBrandsLinkedin from "./flations/fi-brands-linkedin";
+import FiBrandsTwitter from "./flations/fi-brands-twitter";
 import UlFooter from "./ui/ul-footer";
 
 const Footer = () => {
@@ -12,8 +15,11 @@ const Footer = () => {
             nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate
             velit imperdiet dolor tempor tristique. Pellentesque habitant
           </p>
-          <div className="mt-5 text-3xl text-[#dce5e4] ">
-            <FiBrandsFacebook className="hover:text-[#335045] cursor-pointer" />
+          <div className=" flex gap-5 mt-10 text-2xl text-[#dce5e4] ">
+            <FiBrandsFacebook className="text-[#335045] cursor-pointer hover:text-[#497162]" />
+            <FiBrandsInstagram className="text-[#335045] cursor-pointer hover:text-[#497162]" />
+            <FiBrandsTwitter className="text-[#335045] cursor-pointer hover:text-[#497162]" />
+            <FiBrandsLinkedin className="text-[#335045] cursor-pointer hover:text-[#497162]" />
           </div>
         </div>
         <UlFooter items={["About us", "Services", "Blog", "Contact us"]} />

@@ -2,7 +2,7 @@ import Header from "@/components/header";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./globals.css";
 import { Toaster } from "sonner";
-
+import Footer from "@/components/footer";
 
 const googleClientId = process.env.NEXT_PUBLIC_GG_CLIENT_ID || "";
 
@@ -18,6 +18,7 @@ export default function DashboardLayout({
           <Toaster position="top-right" richColors />
           <Header />
           <main>{children}</main>
+          <Footer />
         </GoogleOAuthProvider>
       </body>
     </html>
