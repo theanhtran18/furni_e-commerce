@@ -1,7 +1,6 @@
 "use client";
 
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import { useGoogleLogin } from "@react-oauth/google";
 import AuthLayout from "@/components/layout/auth-layout";
 import AuthHeader from "@/components/ui/auth-header";
@@ -9,9 +8,9 @@ import GoogleAuthButton from "@/components/button/google-button";
 import Divider from "@/components/ui/divider";
 import LoginFormFields from "@/components/form/login-form-field";
 import axiosInstance from "lib/axiosInstance";
+import { setAuth } from "lib/auth";
 
 const LoginPage = () => {
-  const router = useRouter();
 
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -22,14 +21,14 @@ const LoginPage = () => {
         }
       );
 
-      await axiosInstance.post("/auth/google", {
+      const user = await axiosInstance.post("/auth/google", {
         email: userInfo.email,
         givenName: userInfo.given_name,
         familyName: userInfo.family_name,
         avatar: userInfo.picture,
       });
-
-      router.push("/");
+      setAuth(user.data.user);
+      window.location.href = "/";
     },
   });
 

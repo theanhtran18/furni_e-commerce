@@ -1,6 +1,37 @@
+import { getUser } from "lib/auth";
 import ExploreButton from "./button/explore";
+import { toast } from "sonner";
 
 const ProductModal = ({ product, onClose }) => {
+  const user = getUser();
+  const handleAddToCart = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE}/cartItem/add`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: user._id,
+            productId: product._id,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Product added to cart successfully");
+      } else {
+        toast.error("Failed to add product to cart");
+      }
+    } catch (error) {
+      console.error("🚨 Network or server error:", error);
+    }
+  };
+
   if (!product) return null;
 
   return (
@@ -37,7 +68,12 @@ const ProductModal = ({ product, onClose }) => {
             placerat nisl, nec luctus elit.
           </p>
 
-          <button className="bg-[#f9bf29] border border-[#f9bf29] text-black px-5 py-3 rounded-xl font-bold hover:bg-[#f9bf29] cursor-pointer transition duration-300 w-fit">
+          <button
+            onClick={handleAddToCart}
+            className="bg-[#f9bf29] cursor-pointer border border-[#f9bf29] text-black px-5 py-3 rounded-xl font-bold 
+             hover:bg-[#f3b41c] hover:text-white hover:shadow-lg 
+             transition-all duration-300 ease-in-out w-fit"
+          >
             Add to Cart
           </button>
         </div>
