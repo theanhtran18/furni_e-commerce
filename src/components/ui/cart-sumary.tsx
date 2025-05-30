@@ -1,10 +1,23 @@
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+
 const CartSummary = ({ selectedItems }) => {
+  const router = useRouter();
+
   const total = selectedItems.reduce(
     (sum, item) => sum + item.product.price * item.quantity,
     0
   );
 
   const displayPrice = (value: number) => `$${(value / 100).toFixed(2)}`;
+
+  const handleCheckout = () => {
+    if (total === 0) {
+      toast.warning("Chưa có sản phẩm nào được chọn!");
+      return;
+    }
+    router.push("/checkout");
+  };
 
   return (
     <div className="col-start-3 px-6 py-4 bg-gray-50 rounded-xl shadow-lg border border-gray-200">
@@ -29,7 +42,10 @@ const CartSummary = ({ selectedItems }) => {
         </tbody>
       </table>
 
-      <button className="mt-4 w-full p-3 rounded-3xl border cursor-pointer hover:bg-[#cfa706] hover:text-white">
+      <button
+        onClick={handleCheckout}
+        className="mt-4 w-full p-3 rounded-3xl border cursor-pointer hover:bg-[#cfa706] hover:text-white"
+      >
         Proceed To Checkout
       </button>
     </div>

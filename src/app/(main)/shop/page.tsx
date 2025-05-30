@@ -1,6 +1,7 @@
 "use client";
 
 import ProductModal from "@/components/product-modal";
+import Banner from "@/components/ui/banner";
 import ProductCard from "@/components/ui/product-card";
 import { useState, useEffect } from "react";
 
@@ -25,9 +26,7 @@ const ShopPage = () => {
   return (
     <>
       <div>
-        <header className="bg-[#3b5d50] p-30">
-          <h1 className="font-bold text-white text-4xl">Shop</h1>
-        </header>
+        <Banner title="Shop" />
         <div>
           <div className="bg-white w-full border-none  text-black p-30">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

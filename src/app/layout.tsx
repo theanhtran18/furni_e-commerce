@@ -15,7 +15,15 @@ export default function DashboardLayout({
     <html lang="en">
       <body>
         <GoogleOAuthProvider clientId={googleClientId}>
-          <Toaster position="top-right" richColors />
+          <Toaster
+            position="top-right"
+            richColors
+            toastOptions={{
+              classNames: {
+                toast: "toast-slide-in",
+              },
+            }}
+          />
           <Header />
           <main>{children}</main>
           <Footer />

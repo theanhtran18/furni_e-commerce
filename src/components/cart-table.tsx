@@ -78,8 +78,8 @@ const CartTable = () => {
     <div className="container mx-auto px-4 py-8">
       <table className="w-full table-auto text-left border-separate border-spacing-y-6">
         <thead>
-          <tr className="text-gray-600 border-b border-gray-300">
-            <th>Select</th>
+          <tr className="text-gray-600">
+            <th></th>
             <th>Image</th>
             <th>Product</th>
             <th>Price</th>
