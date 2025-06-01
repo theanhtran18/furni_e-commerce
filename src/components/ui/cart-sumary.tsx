@@ -1,9 +1,11 @@
+import { useDispatch } from "react-redux";
+import { setSelectedItems } from "store/slices/cart-slice";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 const CartSummary = ({ selectedItems }) => {
   const router = useRouter();
-
+  const dispatch = useDispatch();
   const total = selectedItems.reduce(
     (sum, item) => sum + item.product.price * item.quantity,
     0
@@ -16,6 +18,7 @@ const CartSummary = ({ selectedItems }) => {
       toast.warning("Chưa có sản phẩm nào được chọn!");
       return;
     }
+    dispatch(setSelectedItems(selectedItems));
     router.push("/checkout");
   };
 

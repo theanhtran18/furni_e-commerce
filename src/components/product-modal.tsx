@@ -24,6 +24,7 @@ const ProductModal = ({ product, onClose }) => {
 
       if (response.ok) {
         toast.success("Product added to cart successfully");
+        onClose();
       } else {
         toast.error("Failed to add product to cart");
       }

@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@react-oauth/google": "^0.12.1",
+    "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.8.4",
     "jsonwebtoken": "^9.0.2",
     "next": "^15.2.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
     "sonner": "^2.0.3",
     "swr": "^2.3.3"
   },
