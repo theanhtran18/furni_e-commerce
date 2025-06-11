@@ -1,4 +1,5 @@
 // Lưu user vào localStorage
+"use client";
 export const setAuth = (user ) => {
     localStorage.setItem('user', JSON.stringify(user))
     //localStorage.setItem('tokens', JSON.stringify(tokens))

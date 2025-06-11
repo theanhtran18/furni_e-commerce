@@ -1,7 +1,7 @@
 "use client";
 
-import CartTable from "@/components/cart-table";
-import Banner from "@/components/ui/banner";
+import CartTable from "@/components/Cart-table";
+import Banner from "@/components/ui/Banner";
 
 const ShoppingCart = () => {
   return (

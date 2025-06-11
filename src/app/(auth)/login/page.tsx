@@ -2,16 +2,15 @@
 
 import axios from "axios";
 import { useGoogleLogin } from "@react-oauth/google";
-import AuthLayout from "@/components/layout/auth-layout";
-import AuthHeader from "@/components/ui/auth-header";
-import GoogleAuthButton from "@/components/button/google-button";
-import Divider from "@/components/ui/divider";
-import LoginFormFields from "@/components/form/login-form-field";
+import AuthLayout from "@/components/layout/Auth-layout";
+import AuthHeader from "@/components/ui/Auth-header";
+import GoogleAuthButton from "@/components/button/Google-button";
+import Divider from "@/components/ui/Divider";
+import LoginFormFields from "@/components/form/Login-form-field";
 import axiosInstance from "lib/axiosInstance";
 import { setAuth } from "lib/auth";
 
 const LoginPage = () => {
-
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       const { data: userInfo } = await axios.get(
@@ -28,7 +27,11 @@ const LoginPage = () => {
         avatar: userInfo.picture,
       });
       setAuth(user.data.user);
-      window.location.href = "/";
+      if (user.data.user.role === "user") {
+        window.location.href = "/";
+      } else {
+        window.location.href = "/admin";
+      }
     },
   });
 

@@ -2,13 +2,32 @@
 import { unsetAuth } from "lib/auth";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -66,7 +85,7 @@ const Header = () => {
             </li>
           </>
         ) : (
-          <li className="relative">
+          <li className="relative" ref={menuRef}>
             <div
               className="cursor-pointer w-7 h-7 rounded-full overflow-hidden border-2 border-white"
               onClick={() => setMenuOpen(!menuOpen)}
@@ -87,7 +106,11 @@ const Header = () => {
                   <p className="border"></p>
                 </li>
                 <li className=" rounded-md px-4 py-2 hover:bg-gray-100">
-                  <Link className="flex items-center gap-4" href="/profile">
+                  <Link
+                    className="flex items-center gap-4"
+                    href="/profile"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                  >
                     <svg
                       className="w-6 h-6 "
                       aria-hidden="true"
@@ -110,7 +133,11 @@ const Header = () => {
                 </li>
 
                 <li className=" rounded-md px-4 py-2 hover:bg-gray-100">
-                  <Link className="flex items-center gap-4" href="/profile">
+                  <Link
+                    className="flex items-center gap-4"
+                    href="/profile"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                  >
                     <svg
                       className="w-6 h-6"
                       aria-hidden="true"

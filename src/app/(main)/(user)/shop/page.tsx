@@ -1,8 +1,8 @@
 "use client";
 
-import ProductModal from "@/components/product-modal";
-import Banner from "@/components/ui/banner";
-import ProductCard from "@/components/ui/product-card";
+import ProductModal from "@/components/Product-modal";
+import Banner from "@/components/ui/Banner";
+import ProductCard from "@/components/ui/Product-card";
 import { useState, useEffect } from "react";
 
 const ShopPage = () => {

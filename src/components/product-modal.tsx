@@ -1,5 +1,5 @@
 import { getUser } from "lib/auth";
-import ExploreButton from "./button/explore";
+import ExploreButton from "./button/Explore";
 import { toast } from "sonner";
 
 const ProductModal = ({ product, onClose }) => {

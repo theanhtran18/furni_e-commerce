@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ExploreButton from "./button/explore";
-import ProductCard from "./ui/product-card";
+import ExploreButton from "./button/Explore";
+import ProductCard from "./ui/Product-card";
 
 const ProductSection = () => {
   const [products, setProducts] = useState([]);

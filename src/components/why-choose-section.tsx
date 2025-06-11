@@ -1,5 +1,5 @@
 import FiBrandsFacebook from "./flations/fi-brands-facebook";
-import Feature from "./ui/feature";
+import Feature from "./ui/Feature";
 
 const WhyChooseSection = () => {
   return (

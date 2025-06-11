@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import CartItemRow from "./ui/cart-item-row";
-import CartSummary from "./ui/cart-sumary";
+import CartItemRow from "./ui/Cart-item-row";
+import CartSummary from "./ui/Cart-sumary";
 
 const CartTable = () => {
   const [items, setItems] = useState([]);

@@ -1,4 +1,4 @@
-import ExploreButton from "../button/explore";
+import ExploreButton from "../button/Explore";
 
 const HeroContainer = () => {
   return (

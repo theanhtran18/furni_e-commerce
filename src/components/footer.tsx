@@ -2,7 +2,7 @@ import FiBrandsFacebook from "./flations/fi-brands-facebook";
 import FiBrandsInstagram from "./flations/fi-brands-instagram";
 import FiBrandsLinkedin from "./flations/fi-brands-linkedin";
 import FiBrandsTwitter from "./flations/fi-brands-twitter";
-import UlFooter from "./ui/ul-footer";
+import UlFooter from "./ui/Ul-footer";
 
 const Footer = () => {
   return (

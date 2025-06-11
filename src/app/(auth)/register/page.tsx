@@ -3,11 +3,11 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useGoogleLogin } from "@react-oauth/google";
-import AuthLayout from "@/components/layout/auth-layout";
-import AuthHeader from "@/components/ui/auth-header";
-import GoogleAuthButton from "@/components/button/google-button";
-import Divider from "@/components/ui/divider";
-import LoginFormFields from "@/components/form/login-form-field";
+import AuthLayout from "@/components/layout/Auth-layout";
+import AuthHeader from "@/components/ui/Auth-header";
+import GoogleAuthButton from "@/components/button/Google-button";
+import Divider from "@/components/ui/Divider";
+import LoginFormFields from "@/components/form/Login-form-field";
 
 const RegisterPage = () => {
   const router = useRouter();

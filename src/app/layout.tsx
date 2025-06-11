@@ -1,9 +1,9 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./globals.css";
 import { Toaster } from "sonner";
-import Footer from "@/components/footer";
-import { ReduxProvider } from "@/components/redux-provider";
+import Footer from "@/components/Footer";
+import { ReduxProvider } from "@/components/Redux-provider";
 
 const googleClientId = process.env.NEXT_PUBLIC_GG_CLIENT_ID || "";
 
