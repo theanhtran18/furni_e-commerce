@@ -105,10 +105,10 @@ const Header = () => {
                   <p className="text-[12px]">{user.email}</p>
                   <p className="border"></p>
                 </li>
-                <li className=" rounded-md px-4 py-2 hover:bg-gray-100">
+                <li className=" rounded-md px-4 py-2 hover:bg-[#dbfdeb]">
                   <Link
                     className="flex items-center gap-4"
-                    href="/profile"
+                    href="/purchase"
                     onClick={() => setMenuOpen(!menuOpen)}
                   >
                     <svg
@@ -132,7 +132,7 @@ const Header = () => {
                   </Link>
                 </li>
 
-                <li className=" rounded-md px-4 py-2 hover:bg-gray-100">
+                <li className=" rounded-md px-4 py-2 hover:bg-[#dbfdeb]">
                   <Link
                     className="flex items-center gap-4"
                     href="/profile"
@@ -160,7 +160,7 @@ const Header = () => {
                 </li>
                 <li
                   onClick={handleLogout}
-                  className="flex items-center gap-4 rounded-md px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  className="flex items-center gap-4 rounded-md px-4 py-2 hover:bg-[#dbfdeb] cursor-pointer"
                 >
                   <svg
                     className="w-6 h-6"

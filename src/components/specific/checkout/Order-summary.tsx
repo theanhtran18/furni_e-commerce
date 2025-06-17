@@ -17,39 +17,44 @@ const OrderSummary = ({ form, setForm }) => {
       toast.warning("Please provide delivery address!");
       return;
     }
-
-    const orderPayload = {
-      userId: user._id,
-      listProduct: items.map((item) => ({
-        productId: item.product._id,
-        quantity: item.quantity,
-      })),
-      paymentMethod: form.paymentMethod,
-      note: form.note,
-      shippingAddress: form.address,
-    };
-
     try {
-      const res = await fetch(
-        process.env.NEXT_PUBLIC_API_BASE + "/order/place-order",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(orderPayload),
-        }
+      const results = await Promise.all(
+        items.map(async (item) => {
+          const orderPayload = {
+            userId: user._id,
+            product: {
+              productId: item.product._id,
+              quantity: item.quantity,
+            },
+            paymentMethod: form.paymentMethod,
+            note: form.note,
+            shippingAddress: form.address,
+          };
+
+          const res = await fetch(
+            process.env.NEXT_PUBLIC_API_BASE + "/order/place-order",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(orderPayload),
+            }
+          );
+
+          if (!res.ok) {
+            throw new Error("One or more orders failed");
+          }
+
+          return res.json();
+        })
       );
 
-      if (res.ok) {
-        toast.success("Order placed successfully!");
-        // Optionally reset form or redirect
-      } else {
-        toast.error("Failed to place order.");
-      }
+      toast.success("Orders placed successfully!");
+      window.location.href = "/purchase";
     } catch (error) {
       console.error(error);
-      toast.error("An error occurred while placing order.");
+      toast.error("Failed to place all orders.");
     }
   };
   return (
