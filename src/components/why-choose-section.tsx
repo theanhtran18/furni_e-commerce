@@ -1,4 +1,8 @@
 import FiBrandsFacebook from "./flations/fi-brands-facebook";
+import FiRrCalendarShiftSwap from "./flations/fi-rr-calendar-shift-swap";
+import FiRrGroceryBasket from "./flations/fi-rr-grocery-basket";
+import FiRrLifeRing from "./flations/fi-rr-life-ring";
+import FiRrTruckSide from "./flations/fi-rr-truck-side";
 import Feature from "./ui/Feature";
 
 const WhyChooseSection = () => {
@@ -13,24 +17,24 @@ const WhyChooseSection = () => {
             Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
             velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
           </p>
-          <div className="grid grid-cols-2 gap-8 ">
+          <div className="grid grid-cols-2 gap-10 ">
             <Feature
-              icon={<FiBrandsFacebook />}
+              icon={<FiRrTruckSide />}
               title="Fast & Free Shipping"
               description="Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
             />
             <Feature
-              icon={<FiBrandsFacebook />}
+              icon={<FiRrGroceryBasket />}
               title="Easy to Shop"
               description="Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
             />
             <Feature
-              icon={<FiBrandsFacebook />}
+              icon={<FiRrLifeRing />}
               title="24/7 Support"
               description="Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
             />
             <Feature
-              icon={<FiBrandsFacebook />}
+              icon={<FiRrCalendarShiftSwap />}
               title="Hassle Free Returns"
               description="Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
             />
