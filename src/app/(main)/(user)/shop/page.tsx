@@ -30,13 +30,17 @@ const ShopPage = () => {
         <div>
           <div className="bg-white w-full border-none  text-black p-30">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {products.map((product) => (
-                <ProductCard
-                  key={product._id}
-                  product={product}
-                  onClick={() => setSelectedProduct(product)}
-                />
-              ))}
+              {products.length > 0 ? (
+                products.map((product) => (
+                  <ProductCard
+                    key={product._id}
+                    product={product}
+                    onClick={() => setSelectedProduct(product)}
+                  />
+                ))
+              ) : (
+                <div>Chưa có sản phẩm nào!</div>
+              )}
             </div>
           </div>
           <ProductModal

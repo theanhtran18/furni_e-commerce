@@ -1,3 +1,4 @@
+"use client";
 import { getUser } from "lib/auth";
 
 const BillingDetail = ({ form, setForm }) => {

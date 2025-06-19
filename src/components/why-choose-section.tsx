@@ -1,4 +1,3 @@
-import FiBrandsFacebook from "./flations/fi-brands-facebook";
 import FiRrCalendarShiftSwap from "./flations/fi-rr-calendar-shift-swap";
 import FiRrGroceryBasket from "./flations/fi-rr-grocery-basket";
 import FiRrLifeRing from "./flations/fi-rr-life-ring";
