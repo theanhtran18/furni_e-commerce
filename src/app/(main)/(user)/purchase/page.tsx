@@ -28,13 +28,14 @@ const PurchasePage = () => {
   };
   const handleCancelOrder = async (order) => {
     const res = await fetch(
-      process.env.NEXT_PUBLIC_API_BASE + "/order/update",
+      process.env.NEXT_PUBLIC_API_BASE + `/orders/${order._id}`,
       {
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ orderId: order._id, status: "cancelled" }),
+        credentials: "include",
+        body: JSON.stringify({ status: "cancelled" }),
       }
     );
 
@@ -49,16 +50,13 @@ const PurchasePage = () => {
 
   const getAllOrder = async () => {
     try {
-      const res = await fetch(
-        process.env.NEXT_PUBLIC_API_BASE + "/order/getAllOrder",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ userId: user._id }),
-        }
-      );
+      const res = await fetch(process.env.NEXT_PUBLIC_API_BASE + "/orders", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
 
       if (res.ok) {
         //toast.success("Order placed successfully!");

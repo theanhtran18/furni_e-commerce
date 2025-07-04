@@ -1,20 +1,17 @@
-import { getUser } from "lib/auth";
-import ExploreButton from "./button/Explore";
 import { toast } from "sonner";
 
 const ProductModal = ({ product, onClose }) => {
-  const user = getUser();
   const handleAddToCart = async () => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE}/cartItem/add`,
+        `${process.env.NEXT_PUBLIC_API_BASE}/cartItems`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
           body: JSON.stringify({
-            userId: user._id,
             productId: product._id,
           }),
         }

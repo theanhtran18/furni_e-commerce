@@ -10,7 +10,7 @@ const ProductSection = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/product`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/products`);
         const data = await res.json();
         setProducts(data.slice(0, 3));
       } catch (err) {

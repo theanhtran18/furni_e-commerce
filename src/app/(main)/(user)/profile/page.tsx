@@ -61,12 +61,13 @@ const UserPage = () => {
   const handleUpdateUser = async () => {
     try {
       const res = await fetch(
-        process.env.NEXT_PUBLIC_API_BASE + "/user/editProfile",
+        process.env.NEXT_PUBLIC_API_BASE + "/user/profile",
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
           body: JSON.stringify(formData),
         }
       );

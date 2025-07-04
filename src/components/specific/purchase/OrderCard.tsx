@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import ProductReviewModal from "../product-review/ProductReviewModal";
 
 const OrderCard = ({ filterOrders, handleBuyBack, handleCancelOrder }) => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       {Array.isArray(filterOrders) && filterOrders.length > 0 ? (
@@ -50,7 +53,9 @@ const OrderCard = ({ filterOrders, handleBuyBack, handleCancelOrder }) => {
                       className="border border-gray-200 rounded-md"
                     />
                     <div className="flex flex-col justify-between px-5">
-                      <h2>{order.product.productName}</h2>
+                      <h2 className="font-semibold">
+                        {order.product.productName}
+                      </h2>
                       <p>mo ta</p>
                       <p>x{order.quantity}</p>
                     </div>
@@ -65,7 +70,11 @@ const OrderCard = ({ filterOrders, handleBuyBack, handleCancelOrder }) => {
               {/*Xác nhận, trả hàng, đánh giá */}
 
               <div className="bg-white p-5 flex justify-between  gap-4 mt-0.5">
-                <p className="mt-15 text-gray-500">16/06/2025</p>
+                <p className="mt-15 text-gray-500 text-sm">
+                  {new Date(order.updatedAt).toLocaleString("vi-VN", {
+                    timeZone: "Asia/Ho_Chi_Minh",
+                  })}
+                </p>
                 <div className="flex flex-col items-end gap-4">
                   <div className="flex ">
                     Total amount:{" "}
@@ -94,6 +103,18 @@ const OrderCard = ({ filterOrders, handleBuyBack, handleCancelOrder }) => {
                       >
                         Buy Back
                       </button>
+                      <button
+                        className="border p-2 rounded-md font-bold text-sm cursor-pointer"
+                        onClick={() => setShowModal(true)}
+                      >
+                        Product Review
+                      </button>
+                      {showModal && (
+                        <ProductReviewModal
+                          product={order.product}
+                          onClose={() => setShowModal(false)}
+                        />
+                      )}
                       <button className="border p-2 rounded-md font-bold text-sm cursor-pointer">
                         View Store Reviews
                       </button>

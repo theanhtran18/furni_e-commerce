@@ -41,11 +41,12 @@ const CartTable = () => {
           : item
       )
     );
-    await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/cartItem/add`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/cartItems`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({ userId, productId, quantity: delta }),
     });
   };
@@ -53,12 +54,13 @@ const CartTable = () => {
   const removeProduct = async (productId: string) => {
     setItems((prev) => prev.filter((item) => item.product._id !== productId));
     setSelectedIds((prev) => prev.filter((id) => id !== productId));
-    await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/cartItem/delete`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/cartItems/${productId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userId, productId }),
+      credentials: "include",
+      body: JSON.stringify({ userId }),
     });
   };
 
