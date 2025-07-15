@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE,
-  withCredentials: true, // QUAN TRỌNG: để cookie được gửi kèm
+  withCredentials: true, 
   headers: {
     'Content-Type': 'application/json',
   },

@@ -12,7 +12,7 @@ const ShopPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/product`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/products`);
         const data = await res.json();
         setProducts(data);
       } catch (err) {
