@@ -12,7 +12,7 @@ const ProductSection = () => {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/products`);
         const data = await res.json();
-        setProducts(data.slice(0, 3));
+        setProducts(data.products.slice(0, 3));
       } catch (err) {
         console.error("Failed to fetch products:", err);
       }

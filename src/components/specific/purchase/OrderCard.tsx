@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import ProductReviewModal from "../product-review/ProductReviewModal";
 
@@ -132,4 +132,4 @@ const OrderCard = ({ filterOrders, handleBuyBack, handleCancelOrder }) => {
   );
 };
 
-export default OrderCard;
+export default React.memo(OrderCard);

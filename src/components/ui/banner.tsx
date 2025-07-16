@@ -1,4 +1,7 @@
 "use client";
+
+import React from "react";
+
 const Banner = ({ title }) => {
   return (
     <div className="relative bg-[#3b5d50] py-20 pl-30 overflow-hidden">
@@ -15,4 +18,4 @@ const Banner = ({ title }) => {
   );
 };
 
-export default Banner;
+export default React.memo(Banner);

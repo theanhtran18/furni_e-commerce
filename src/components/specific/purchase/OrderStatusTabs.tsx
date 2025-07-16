@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 const tabs = ["All", "Pending", "Shipping", "Delivered", "Cancelled"];
 
-export default function OrderStatusTabs({ onTabChange }) {
+const OrderStatusTabs = ({ onTabChange }) => {
   const [activeTab, setActiveTab] = useState("All");
 
-  const handleTabClick = (tab) => {
+  const handleTabClick = (tab: string) => {
     setActiveTab(tab);
     if (onTabChange) onTabChange(tab); // Gửi tab được chọn về cha
   };
@@ -35,4 +35,6 @@ export default function OrderStatusTabs({ onTabChange }) {
       </div>
     </div>
   );
-}
+};
+
+export default React.memo(OrderStatusTabs);
